@@ -17,7 +17,7 @@ class TestResource {
 	@Produces()
 	fun index() :Viewable {
 
-		val topInfo = TopInfo(LocalDateTime.now(), "Taro", "Yamada")
+		val topInfo = TopInfo(LocalDateTime.now(), "Hanako", "Yamada")
 
 		return Viewable("/top/top", topInfo)
 	}
