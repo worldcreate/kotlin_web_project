@@ -19,6 +19,7 @@ class TestResource {
 
 		val topInfo = TopInfo(LocalDateTime.now(), "Hanako", "Yamada")
 
-		return Viewable("/top/top", topInfo)
+		val map = mapOf("item" to topInfo)
+		return Viewable("/top/top", map)
 	}
 }
