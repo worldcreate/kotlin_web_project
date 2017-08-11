@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 // Ajax通信ライブラリ
 import axios from 'axios';
+import Rx from 'rxjs/Rx';
 
 @Component({
   template: `
@@ -19,8 +20,8 @@ export default class MyComponent extends Vue {
 
   onClick() {
     this.count = this.count + 1;
-    axios.get('/app')
-          .then((res) => {
+    Rx.Observable.fromPromise(axios.get('/app'))
+          .subscribe((res) => {
                 console.log(res.data)
           });
   }
