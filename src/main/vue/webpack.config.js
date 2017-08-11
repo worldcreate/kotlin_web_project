@@ -3,7 +3,6 @@ var glob = require('glob')
 var entries = {}
 glob.sync("./src/**/main.ts").map(function(file) {
   var appName = file.replace(/src\//, "").replace(/\.ts/, "").replace(/main$/,"")
-  console.log(appName)
   entries[appName] = file
 
 })
@@ -37,7 +36,8 @@ module.exports = {
   // import 文で .ts ファイルを解決するため
   resolve: {
     extensions: [
-      '.ts'
+      '.ts',
+      '.js'
     ],
     // Webpackで利用するときの設定
     alias: {

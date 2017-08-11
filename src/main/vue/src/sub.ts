@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
+// Ajax通信ライブラリ
+import axios from 'axios';
 
 @Component({
   template: `
@@ -17,5 +19,9 @@ export default class MyComponent extends Vue {
 
   onClick() {
     this.count = this.count + 1;
+    axios.get('/app')
+          .then((res) => {
+                console.log(res.data)
+          });
   }
 }
