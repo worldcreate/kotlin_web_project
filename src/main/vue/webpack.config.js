@@ -1,12 +1,22 @@
+var glob = require('glob')
+
+var entries = {}
+glob.sync("./src/**/main.ts").map(function(file) {
+  var appName = file.replace(/src\//, "").replace(/\.ts/, "").replace(/main$/,"")
+  console.log(appName)
+  entries[appName] = file
+
+})
+
 module.exports = {
   // メインとなるJavaScriptファイル（エントリーポイント）
-  entry: './src/main.ts',
+  entry: entries,
   // ファイルの出力設定
   output: {
     //  出力ファイルのディレクトリ名
-    path: `${__dirname}/build`,
+    path: `${__dirname}/../webapp/assets/scripts`,
     // 出力ファイル名
-    filename: 'bundle.js'
+    filename: '[name]bundle.js'
   },
   module: {
     rules: [
