@@ -20,7 +20,7 @@ export default class MyComponent extends Vue {
 
   onClick() {
     this.count = this.count + 1;
-    Rx.Observable.fromPromise(axios.get('/app'))
+    Rx.Observable.fromPromise(axios.get('/app/test'))
           .subscribe((res) => {
                 console.log(res.data)
           });
