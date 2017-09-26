@@ -29,7 +29,8 @@ fun Application.main() {
             static("assets") {
                 files("assets")
             }
-            default("index.html")
+            files("template")
+            default("template/index.html")
         }
         test()
     }
